@@ -6,6 +6,7 @@ const express = require('express'); //ubacivanje expresa iz libery
 const app = express();
 const expressLayouts = require('express-ejs-layouts');//dodavanje dodatnog paketa
 const bodyParser = require('body-parser')
+const methodOverride = require('method-override')
 
 const indexRouter = require('./routes/index');
 const authorRouter = require('./routes/authors');
@@ -15,6 +16,7 @@ app.set('view engine', 'ejs');//kreiranje pogleda
 app.set('views', __dirname + '/views');
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
+app.use(methodOverride('_method'))
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 
