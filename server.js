@@ -14,10 +14,11 @@ const bookRouter = require('./routes/books');
 
 app.set('view engine', 'ejs');//kreiranje pogleda
 app.set('views', __dirname + '/views');
+app.set('public', __dirname + '/public/');
 app.set('layout', 'layouts/layout');
 app.use(expressLayouts);
 app.use(methodOverride('_method'))
-app.use(express.static('public'));
+app.use(express.static('public'))
 app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 
 const mongoose = require('mongoose');
